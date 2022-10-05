@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h3 {
+    margin: 10px;
+}
+
+.game-board {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    border-bottom: 15px solid rgb(22, 177, 22);
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+.mario {
+    width: 110px;
+    bottom: 0;
+    position: absolute;
+    z-index: 2;
+}
+
+.pipe {
+    width: 65px;
+    position: absolute;
+    bottom: 0;
+    animation: pipe-animation 1.5s  infinite linear;
+    z-index: 2;
+}
+
+.clouds {
+    width: 550px;
+    position: absolute;
+    animation: clouds 20s infinite linear;
+}
+
+.montanhas {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/montanha-1.png");
+    background-repeat: repeat-x;
+    background-size: 465px;
+    background-position: bottom;
+    bottom: 0;
+    z-index: 1;
+}
+
+.mont {
+    position: absolute;
+    width: 600px;
+    z-index: 0;
+    bottom: 90px;
+    animation: mont 50s linear infinite;
+}
+
+.mont-2 {
+    position: absolute;
+    width: 800px;
+    z-index: 0;
+    image-orientation: flip;
+    bottom: 70px;
+    animation: mont-2 50s linear infinite;
+}
+
+.jump {
+    animation: jump 500ms ease-out;
+}
+
+.game-over {
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-game-over {
+    width: 300px;
+    margin-top: -90px;
+}
+
+.super-mario {
+    width: 400px;
+}
+
+.refresh {
+    margin-top: -100px;
+    border: none;
+    background-color: #E42926;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 1);
+}
+
+.refresh:hover {
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+    transform: translateY(4px);
+}
+
+@keyframes pipe-animation{
+    from {
+        right: -65px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes jump{
+
+    0% {
+        bottom: 0px;
+    }
+
+    40% {
+        bottom: 180px;
+    }
+
+    50% {
+        bottom: 180px;
+    }
+
+    60% {
+        bottom: 180px;
+    }
+    
+    100% {
+        bottom: 0px;
+    }
+
+}
+
+@keyframes clouds{
+    from {
+        right: -550px;
+    }
+
+    to {
+        right: 100%
+    }
+}
+
+@keyframes mont{
+    from {
+        right: -600px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes mont-2{
+    from {
+        right: -1200px;
+    }
+
+    to {
+        right: 110%;
+    }
+}
