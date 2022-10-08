@@ -3,9 +3,12 @@ const pipe = document.querySelector('.pipe');
 const gameOver = document.querySelector('.game-over');
 const montanha1 = document.querySelector('.montanha1');
 const montanha2 = document.querySelector('.montanha2');
+const audioJump = new Audio('./music/som do Mário pulando.mp3');
+const audioMusica= new Audio('./music/MÚSICA TEMA DO SUPER MARIO WORLD.mp3');
 var placar = 0;
 
 const jump = () => {
+    audioJump.play();
     mario.classList.add('jump');
 
     setTimeout(() => {
@@ -18,7 +21,9 @@ const reload = () => {
 }
 
 const loop = setInterval(() => {
-    
+
+    audioMusica.play();
+
     const positionPipe = pipe.offsetLeft;
     const positionMario = +window.getComputedStyle(mario).bottom.replace('px', '');
 
@@ -26,6 +31,13 @@ const loop = setInterval(() => {
     const positionMontanha2 = montanha2.offsetLeft;
 
     if ( positionPipe <= 95 && positionPipe > 0 && positionMario < 70){
+       
+        audioMusica.pause();
+
+        const audioGameOver = new Audio('./music/Som do Mario Morrendo  - Efeito Sonoro HD.mp3');
+
+        audioGameOver.play();
+        
         pipe.style.animation = "none";
         pipe.style.left = `${positionPipe}px`;
 
@@ -48,9 +60,9 @@ const loop = setInterval(() => {
 
         document.addEventListener('keydown', reload);
 
-    } else if(positionPipe > 94){
+    } else {
         placar++;
-        console.log(placar+'yghjg');
+        document.getElementById("placar").innerText = placar;
     }
 })
 

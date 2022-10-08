@@ -5,7 +5,11 @@
 }
 
 h3 {
+
+    z-index: 300;
     margin: 10px;
+    color: #a58807;
+    text-align: center;
 }
 
 .game-board {
@@ -29,11 +33,12 @@ h3 {
     width: 65px;
     position: absolute;
     bottom: 0;
-    animation: pipe-animation 1.5s  infinite linear;
+    animation: pipe-animation 1.2s  infinite linear;
     z-index: 2;
 }
 
 .clouds {
+    z-index: 0;
     width: 550px;
     position: absolute;
     animation: clouds 20s infinite linear;
@@ -93,8 +98,8 @@ h3 {
 }
 
 .refresh {
+    border: 2px solid black;
     margin-top: -100px;
-    border: none;
     background-color: #E42926;
     padding: 10px 15px;
     border-radius: 5px;
